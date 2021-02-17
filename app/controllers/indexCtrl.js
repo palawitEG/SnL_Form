@@ -1,16 +1,13 @@
-(function(){
-    'use strict'
+var app = angular.module("MyApp", ["ngMaterial", "ngMessages"]);
 
-    angular
-        .module('MyApp')
-        .controller('ApplicationCtrl', applicationCtrl);
+app.controller("ApplicationCtrl", function appCtrl($sce, $scope, $controller) {
+  const sl = this;
+  $scope.currentNavItem = "page1";
 
-    // injection below
-
-    function applicationCtrl($sce, $scope){
-        const sl = this;
-        sl.name = "MyApp";
-        $scope.name2 = "Palawit"
-    }
-
-})();
+  $scope.goto = function (page) {
+    $scope.status = "Goto " + page;
+  };
+  
+  sl.name = "MyApp";
+  $scope.name2 = "TestTest";
+});

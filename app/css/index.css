@@ -1,0 +1,8 @@
+.ApplicationCtrl md-content .ext-content {
+  padding: 50px;
+  margin: 20px;
+  background-color: #FFF2E0; }
+
+.ApplicationCtrl .md-button.md-default-theme.md-accent, .md-button.md-accent {
+    color: rgb(21, 101, 192);
+}
