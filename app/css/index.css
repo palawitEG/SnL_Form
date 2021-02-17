@@ -6,3 +6,34 @@
 .ApplicationCtrl .md-button.md-default-theme.md-accent, .md-button.md-accent {
     color: rgb(21, 101, 192);
 }
+
+.md-toolbar-tools {
+    font-size: 25px;
+    letter-spacing: 0.005em;
+    box-sizing: border-box;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 64px;
+    max-height: 64px;
+    padding: 0 16px;
+    margin: 0;
+}
+
+main {
+    overflow-y: auto;
+}
+
+page {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2.0cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    }
+    page[size="A4"] {  
+        width: 21cm;
+        height: 29.7cm; 
+    }

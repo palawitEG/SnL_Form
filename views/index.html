@@ -24,26 +24,22 @@
 </head>
 
 <body ng-controller="ApplicationCtrl as sl" ng-cloak>
-    <md-toolbar md-colors="{background: 'blue-800'}">
-        <div class="md-toolbar-tools">
-            <h2 class="md-flex">Document Form</h2>
-        </div>
-    </md-toolbar>
-    
+    <header>
+        <md-toolbar md-colors="{background: 'blue-800'}">
+            <div class="md-toolbar-tools" layout="row" layout-align="center center">
+                <div>Document Form</div>
+            </div>
+        </md-toolbar>
+    </header>
+
     <md-content>
-        <md-nav-bar md-no-ink-bar="true" md-colors="{background: 'blue-800'}" md-selected-nav-item="currentNavItem"
+        <md-nav-bar md-no-ink-bar="true" md-colors="{background: 'blue-800'}" md-selected-nav-item="sl.currentNavItem"
             nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-click="goto('page1')" name="page1">
-                Home
-            </md-nav-item>
-            <md-nav-item md-nav-click="goto('page2')" name="page2" ng-disabled="secondTabDisabled">
+            <md-nav-item md-nav-click="sl.goto('page1')" name="leaveForm">
                 Leave Form
             </md-nav-item>
-            <md-nav-item md-nav-click="goto('page3')" name="page3">
+            <md-nav-item md-nav-click="sl.goto('page2')" name="page2" ng-disabled="secondTabDisabled">
                 Sick Form
-            </md-nav-item>
-            <md-nav-item md-nav-click="goto('page4')" name="page4" disabled>
-                Setting
             </md-nav-item>
             <!-- these require actual routing with ui-router or ng-route, so they
           won't work in the demo
@@ -55,6 +51,101 @@
           </md-nav-item> -->
         </md-nav-bar>
     </md-content>
+    <br>
+    <br>
+    <br>
+    <page size="A4">
+        <div id=formReport style="margin: 0 2.5em 0 2.5em;">
+        </div>
+    </page>
+    <form class="md-inline-form">
+        <div layout="row" layout-wrap>
+            <md-input-container>
+                <label>ชื่อ</label>
+                <input type="text" ng-model="user.firstName">
+            </md-input-container>
+
+            <md-input-container>
+                <label>นามสกุล</label>
+                <input type="text" ng-model="user.lastName">
+            </md-input-container>
+
+            <md-input-container>
+                <label>เพศ</label>
+                <md-select ng-model="user.gen">
+                    <md-option ng-repeat="gen in gens" value="{{gen.abbrev}}">
+                        {{gen.abbrev}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Enter date</label>
+                <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-wrap>
+            <md-input-container>
+                <label>Postal Code</label>
+                <input type="text" ng-model="user.postalCode">
+            </md-input-container>
+
+            <md-input-container>
+                <label>State of Birth</label>
+                <md-select ng-model="user.stateOfBirth">
+                    <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                        {{state.abbrev}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Description</label>
+                <textarea ng-model="user.description"></textarea>
+            </md-input-container>
+
+            <md-checkbox ng-model="user.licenseAccepted">
+                I agree to the license terms.
+            </md-checkbox>
+        </div>
+        <div layout="row" layout-wrap>
+            <md-input-container>
+                <label>Company</label>
+                <input type="text" ng-model="user.company">
+            </md-input-container>
+
+            <md-input-container>
+                <label>City</label>
+                <input type="text" ng-model="user.city">
+            </md-input-container>
+
+            <md-switch ng-model="user.marketingOptIn" aria-label="Opt-in to emails">
+                Opt-in to emails
+            </md-switch>
+        </div>
+        <div layout="row" layout-wrap>
+            <md-input-container>
+                <label>Title</label>
+                <input type="text" ng-model="user.title">
+            </md-input-container>
+
+            <label class="demo-radio-button-label">Primary Language:</label>
+            <md-radio-group ng-model="data.group1">
+                <md-radio-button value="TypeScript">TypeScript</md-radio-button>
+                <md-radio-button value="JavaScript">JavaScript</md-radio-button>
+                <md-radio-button value="Java">Java</md-radio-button>
+                <md-radio-button value="C#">C#</md-radio-button>
+            </md-radio-group>
+        </div>
+    </form>
+
+    <footer>
+        <md-toolbar md-colors="{background: 'blue-800'}">
+            <div class="md-toolbar-tools" layout="row" layout-align="center center" flex>
+                FOOTER INFO
+            </div>
+        </md-toolbar>
+    </footer>
 </body>
 
 </html>
