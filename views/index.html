@@ -31,18 +31,17 @@
         </md-toolbar>
     </header>
 
-    <main flex>
-        <div ui-view>
-            <md-content>
-                <md-nav-bar md-no-ink-bar="true" md-colors="{background: 'blue-800'}"
-                    md-selected-nav-item="sl.currentNavItem" nav-bar-aria-label="navigation links">
-                    <md-nav-item md-nav-click="sl.goto('page1')" name="leaveForm">
-                        Leave Form
-                    </md-nav-item>
-                    <md-nav-item md-nav-click="sl.goto('page2')" name="page2" ng-disabled="secondTabDisabled">
-                        Sick Form
-                    </md-nav-item>
-                    <!-- these require actual routing with ui-router or ng-route, so they
+    <div ui-view>
+        <md-content>
+            <md-nav-bar md-no-ink-bar="true" md-colors="{background: 'blue-800'}"
+                md-selected-nav-item="sl.currentNavItem" nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-click="sl.goto('page1')" name="leaveForm">
+                    Leave Form
+                </md-nav-item>
+                <md-nav-item md-nav-click="sl.goto('page2')" name="page2" ng-disabled="secondTabDisabled">
+                    Sick Form
+                </md-nav-item>
+                <!-- these require actual routing with ui-router or ng-route, so they
                   won't work in the demo
                   <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
                   <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
@@ -50,67 +49,79 @@
                   <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
                     Page Six
                   </md-nav-item> -->
-                </md-nav-bar>
-            </md-content>
-            <br>
-            <br>
-            <br>
-            <page size="A4">
-                <br><br><br><br>
-                <div id=formReport style="margin: 0 2.5em 0 2.5em; word-wrap: break-word;">
-                    <div>No. {{documentParam.No}}</div>
-                    <h3>จดหมายลาออก</h3>
-                    <div>วันที่ {{documentParam.docDate}}</div>
-                    <div>เรียน</div>
-                    <div>ผ่าน</div>
-                    <div>ด้วยข้าพเจ้า(นาย/นาง/นางสาว) {{documentParam.myName}}  {{documentParam.surName}} เริ่มเข้าทำงานตั้งแต่วันที่ {{documentParam.startWorkDate}} ปัจจุบันตำแหน่ง {{documentParam.currentPosition}}
-                        สังกัด(ฝ่าย/แผนก) {{documentParam.dept}}
-                    </div>
-                    <div>มีความประสงค์ขอลาออกเนื่องจาก {{documentParam.leaveReason}} โดยให้มีผลตั้งแต่วันที่ {{documentParam.endWorkDate}} เป็นต้นไป 
-                    </div>
-                    <div>จึงเรียนมาเพื่อโปรดพิจารณาอนุมัติ</div>
-                    <div>ลงชื่อ</div>
-                    <div>( {{documentParam.myName}} {{documentParam.surName}} )</div>
-                    <br><br>    
-                    <div style="border-top: 1px solid black"></div>
-                    <br><br>
-                    <div layout="row" layout-wrap>
-                        <div class="card">
-                            <div class="container">
-                              <h4><b>John Doe</b></h4> 
-                              <p>Architect & Engineer</p> 
-                            </div>
+            </md-nav-bar>
+        </md-content>
+        <br>
+        <br>
+        <br>
+        <page size="A4">
+            <br><br><br><br>
+            <div id=formReport style="margin: 0 2.5em 0 2.5em; word-wrap: break-word;">
+                <div style="text-align: right;">No. {{documentParam.NO}}</div>
+                <h3 style="text-align: center;">จดหมายลาออก</h3>
+                <div style="text-align: right;">วันที่ {{documentParam.docDate}}</div>
+                <br>
+                <div>เรื่อง {{documentParam.subject}}</div>
+                <br>
+                <div>เรียน</div>
+                <br>
+                <div>ผ่าน</div>
+                <br>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    ด้วยข้าพเจ้า(นาย/นาง/นางสาว) {{documentParam.myName}} {{documentParam.surName}}
+                    เริ่มเข้าทำงานตั้งแต่วันที่ {{documentParam.startWorkDate}} ปัจจุบันตำแหน่ง
+                    {{documentParam.currentPosition}}
+                    สังกัด(ฝ่าย/แผนก) {{documentParam.dept}}
+                </div>
+                <br<br><br>
+                <br<br><br>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    มีความประสงค์ขอลาออกเนื่องจาก {{documentParam.leaveReason}} โดยให้มีผลตั้งแต่วันที่
+                    {{documentParam.endWorkDate}} เป็นต้นไป
+                </div>
+                <div>จึงเรียนมาเพื่อโปรดพิจารณาอนุมัติ</div>
+                <div>ลงชื่อ</div>
+                <div>( {{documentParam.myName}} {{documentParam.surName}} )</div>
+                <br><br>
+                <div style="border-top: 1px solid black"></div>
+                <br><br>
+                <div layout="row" layout-wrap>
+                    <div class="card">
+                        <div class="container">
+                            <h4><b>John Doe</b></h4>
+                            <p>Architect & Engineer</p>
                         </div>
-                        <div class="card">
-                            <div class="container">
-                              <h4><b>John Doe</b></h4> 
-                              <p>Architect & Engineer</p> 
-                            </div>
+                    </div>
+                    <div class="card">
+                        <div class="container">
+                            <h4><b>John Doe</b></h4>
+                            <p>Architect & Engineer</p>
                         </div>
-                        <div class="card">
-                            <div class="container">
-                              <h4><b>John Doe</b></h4> 
-                              <p>Architect & Engineer</p> 
-                            </div>
+                    </div>
+                    <div class="card">
+                        <div class="container">
+                            <h4><b>John Doe</b></h4>
+                            <p>Architect & Engineer</p>
                         </div>
                     </div>
                 </div>
-            </page>
+            </div>
+        </page>
 
-            <form class="md-inline-form">
-                <div layout="row" layout-align="center" layout-wrap>
-                    <md-input-container>
-                        <label>ชื่อ</label>
-                        <input type="text" ng-model="user.firstName">
-                    </md-input-container>
+        <form class="md-inline-form">
+            <div layout="row" layout-align="center" layout-wrap>
+                <md-input-container>
+                    <label>ชื่อ</label>
+                    <input type="text" ng-model="documentParam.myName">
+                </md-input-container>
 
-                    <md-input-container>
-                        <label>นามสกุล</label>
-                        <input type="text" ng-model="user.lastName">
-                    </md-input-container>
-                </div>
-            </form>
-    </main>
+                <md-input-container>
+                    <label>นามสกุล</label>
+                    <input type="text" ng-model="documentParam.surName">
+                </md-input-container>
+            </div>
+        </form>
+    </div>
 
     <footer>
         <md-toolbar class="md-scroll-shrink" md-colors="{background: 'blue-800'}">

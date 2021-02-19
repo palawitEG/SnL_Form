@@ -22,10 +22,6 @@
     margin: 0;
 }
 
-main {
-    overflow-y: auto;
-}
-
 page {
     background: white;
     display: block;
