@@ -11,6 +11,21 @@ app.controller("ApplicationCtrl", function appCtrl($sce, $scope, $controller) {
   sl.name = "MyApp";
   $scope.name2 = "TestTest";
 
+  $scope.documentParam = {
+    NO: 1234,
+    docDate: Date.now,
+    subject: "abcd",
+    toEmployer1: "",
+    toEmployer2: "",
+    myName: "",
+    surName: "",
+    startWorkDate: Date.now,
+    endWorkDate: Date.now,
+    currentPosition: "God",
+    dept: "Heaven",
+    leaveReason: "cuz Money",
+  }
+
   $scope.user = {
     title: 'Developer',
     email: 'ipsum@lorem.com',
