@@ -26,7 +26,7 @@
     <header>
         <md-toolbar md-scroll-shrink md-colors="{background: 'blue-800'}">
             <div class="md-toolbar-tools" layout="row" layout-align="center center" flex>
-                <div>Document Form</div>
+                <p>Document Form</p>
             </div>
         </md-toolbar>
     </header>
@@ -56,68 +56,110 @@
         <br>
         <page size="A4">
             <br><br><br><br>
-            <div id=formReport style="margin: 0 2.5em 0 2.5em; word-wrap: break-word;">
+            <div id=formReport style="margin: 0 4.5em 0 4.5em;">
                 <div style="text-align: right;">No. {{documentParam.NO}}</div>
                 <h3 style="text-align: center;">จดหมายลาออก</h3>
                 <div style="text-align: right;">วันที่ {{documentParam.docDate}}</div>
                 <br>
-                <div>เรื่อง {{documentParam.subject}}</div>
+                <div>เรื่อง ขอลาออกจากการเป็นพนักงานบริษัท {{documentParam.subject}}</div>
                 <br>
                 <div>เรียน</div>
                 <br>
                 <div>ผ่าน</div>
                 <br>
                 <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    ด้วยข้าพเจ้า(นาย/นาง/นางสาว) {{documentParam.myName}} {{documentParam.surName}}
+                    ด้วยข้าพเจ้า {{documentParam.titleName}} {{documentParam.myName}} {{documentParam.surName}}
                     เริ่มเข้าทำงานตั้งแต่วันที่ {{documentParam.startWorkDate}} ปัจจุบันตำแหน่ง
                     {{documentParam.currentPosition}}
                     สังกัด(ฝ่าย/แผนก) {{documentParam.dept}}
                 </div>
                 <br<br><br>
-                <br<br><br>
-                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    มีความประสงค์ขอลาออกเนื่องจาก {{documentParam.leaveReason}} โดยให้มีผลตั้งแต่วันที่
-                    {{documentParam.endWorkDate}} เป็นต้นไป
-                </div>
-                <div>จึงเรียนมาเพื่อโปรดพิจารณาอนุมัติ</div>
-                <div>ลงชื่อ</div>
-                <div>( {{documentParam.myName}} {{documentParam.surName}} )</div>
-                <br><br>
-                <div style="border-top: 1px solid black"></div>
-                <br><br>
-                <div layout="row" layout-wrap>
-                    <div class="card">
-                        <div class="container">
-                            <h4><b>John Doe</b></h4>
-                            <p>Architect & Engineer</p>
+                    <br<br><br>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            มีความประสงค์ขอลาออกเนื่องจาก {{documentParam.leaveReason}} โดยให้มีผลตั้งแต่วันที่
+                            {{documentParam.endWorkDate}} เป็นต้นไป
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="container">
-                            <h4><b>John Doe</b></h4>
-                            <p>Architect & Engineer</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="container">
-                            <h4><b>John Doe</b></h4>
-                            <p>Architect & Engineer</p>
-                        </div>
-                    </div>
-                </div>
+                        <br<br><br>
+                            <br<br><br>
+                                <div style="text-align: right;">
+                                    <div>จึงเรียนมาเพื่อโปรดพิจารณาอนุมัติ</div>
+                                    <div>ลงชื่อ</div>
+                                    <div>( {{documentParam.myName}} {{documentParam.surName}} )</div>
+                                </div>
+
+                                <br><br>
+                                <div style="border-top: 1px solid black"></div>
+                                <br><br>
+                                <div layout="row" layout-wrap>
+                                    <div class="card">
+                                        <div style="text-align: center; font-weight: bold;">ผู้อำนวยการ(ต้นสังกัด)</div>
+                                        <div class="container">
+                                            <p>..........................................</p>
+                                            <p>..........................................</p>
+                                            <p>..........................................</p>
+                                            <p>ลงชื่อ.................................</p>
+                                            <p>ตำแหน่ง............................</p>
+                                            <p>วันที่...................................</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div style="text-align: center; font-weight: bold;">
+                                            ผู้อำนวยการฝ่ายทรัพยากรมนุษย์</div>
+                                        <div class="container">
+                                            <p>..........................................</p>
+                                            <p>..........................................</p>
+                                            <p>..........................................</p>
+                                            <p>ลงชื่อ.................................</p>
+                                            <p>ตำแหน่ง............................</p>
+                                            <p>วันที่...................................</p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div style="text-align: center; font-weight: bold;">กรรมการผู้จัดการ</div>
+                                        <div class="container">
+                                            <p>..........................................</p>
+                                            <p>..........................................</p>
+                                            <p>..........................................</p>
+                                            <p>ลงชื่อ.................................</p>
+                                            <p>ตำแหน่ง............................</p>
+                                            <p>วันที่...................................</p>
+                                        </div>
+                                    </div>
+                                </div>
             </div>
         </page>
 
         <form class="md-inline-form">
             <div layout="row" layout-align="center" layout-wrap>
+                <md-select ng-model="documentParam.titleName" placeholder="คำนำหน้า" class="md-no-underline">
+                    <md-option value="นาย">นาย</md-option>
+                    <md-option value="นาง">นาง</md-option>
+                    <md-option value="นางสาว">นางสาว</md-option>
+                </md-select>
                 <md-input-container>
                     <label>ชื่อ</label>
                     <input type="text" ng-model="documentParam.myName">
                 </md-input-container>
-
                 <md-input-container>
                     <label>นามสกุล</label>
                     <input type="text" ng-model="documentParam.surName">
+                </md-input-container>
+                <md-datepicker ng-model="documentParam.startWorkDate" md-placeholder="วันที่เริ่มทำงาน"></md-datepicker>
+                <md-datepicker ng-model="documentParam.endWorkDate" md-placeholder="วันที่ออกจากการทำงาน">
+                </md-datepicker>
+            </div>
+            <div layout="row" layout-align="center" layout-wrap>
+                <md-input-container>
+                    <label>ตำแหน่งปัจจุบัน</label>
+                    <input type="text" ng-model="documentParam.myName">
+                </md-input-container>
+                <md-input-container>
+                    <label>สังกัด(แผนก/ฝ่าย)</label>
+                    <input type="text" ng-model="documentParam.myName">
+                </md-input-container>
+                <md-input-container>
+                    <label>เหตุผลที่ต้องการลาออก</label>
+                    <input type="text" ng-model="documentParam.myName">
                 </md-input-container>
             </div>
         </form>
