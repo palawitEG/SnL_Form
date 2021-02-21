@@ -63,9 +63,9 @@
                 <br>
                 <div>เรื่อง ขอลาออกจากการเป็นพนักงานบริษัท {{documentParam.subject}}</div>
                 <br>
-                <div>เรียน</div>
+                <div>เรียน {{documentParam.toEmployer1}} </div>
                 <br>
-                <div>ผ่าน</div>
+                <div>ผ่าน {{documentParam.toEmployer2}}</div>
                 <br>
                 <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     ด้วยข้าพเจ้า {{documentParam.titleName}} {{documentParam.myName}} {{documentParam.surName}}
@@ -83,7 +83,8 @@
                             <br<br><br>
                                 <div style="text-align: right;">
                                     <div>จึงเรียนมาเพื่อโปรดพิจารณาอนุมัติ</div>
-                                    <div>ลงชื่อ</div>
+                                    <br><br><br><br>
+                                    <div style="margin-right: 12em;">ลงชื่อ</div>
                                     <div>( {{documentParam.myName}} {{documentParam.surName}} )</div>
                                 </div>
 
@@ -129,6 +130,13 @@
             </div>
         </page>
 
+        <md-toolbar md-colors="{background: 'blue-800'}" flex="55" style="margin-left: 22em; border-radius: 25px;" class="toolbars">
+            <div class="md-toolbar-tools">
+              <h2 class="md-flex">แก้ไข</h2>
+              <md-button class="md-raised md-primary" md-colors="{background: 'green-800'}" style="margin-left: 61em;">Export PDF</md-button>
+            </div>
+        </md-toolbar>
+        
         <form class="md-inline-form">
             <div layout="row" layout-align="center" layout-wrap>
                 <md-select ng-model="documentParam.titleName" placeholder="คำนำหน้า" class="md-no-underline">
@@ -167,8 +175,8 @@
 
     <footer>
         <md-toolbar class="md-scroll-shrink" md-colors="{background: 'blue-800'}">
-            <div class="md-toolbar-tools" layout="row" layout-align="center center" flex>
-                FOOTER INFO
+            <div class="md-toolbar-tools" layout="row" layout-align="center center" style="font-size: 20px;">
+                Example angularjs with angular-materials Made by P.PALAWIT
             </div>
         </md-toolbar>
     </footer>

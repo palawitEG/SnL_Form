@@ -48,19 +48,19 @@ app.controller("ApplicationCtrl", function appCtrl($sce, $scope, $controller) {
   $scope.name2 = "TestTest";
 
   $scope.documentParam = {
-    NO: 1234,
+    NO: 987654321,
     docDate: sl.getDateNowTH(dateNow),
-    subject: "abcd",
-    toEmployer1: "",
-    toEmployer2: "",
-    titleName: "",
-    myName: "",
-    surName: "",
+    subject: "ABC Company",
+    toEmployer1: "A",
+    toEmployer2: "B",
+    titleName: "(ระบุคำนำหน้าชื่อ)",
+    myName: "(ระบุชื่อ)",
+    surName: "(ระบุนามสกุล)",
     startWorkDate: "(ระบุวันที่เริ่มทำงาน)",
     endWorkDate: "(ระบุวันที่เริ่มทำงาน)",
-    currentPosition: "God",
-    dept: "Heaven",
-    leaveReason: "cuz Money",
+    currentPosition: "(ระบุตำแหน่ง)",
+    dept: "(ระบุแผนก หรือฝ่าย)",
+    leaveReason: "(ระบุเหตุผล)",
   }
 
   $scope.user = {
