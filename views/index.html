@@ -28,6 +28,9 @@
     <script src="/node_modules/pdfmake/build/pdfmake.js"></script>
     <script src="/node_modules/pdfmake/build/vfs_fonts.js"></script>
 
+    <!-- html2canvas -->
+    <script src="/node_modules/html2canvas/dist/html2canvas.min.js"></script>
+
     <title>My Application</title>
 </head>
 
@@ -86,7 +89,8 @@
                         </div>
                         <br<br><br>
                             <br<br><br>
-                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     มีความประสงค์ขอลาออกเนื่องจาก {{documentParam.leaveReason}} โดยให้มีผลตั้งแต่วันที่
                                     {{documentParam.endWorkDate}} เป็นต้นไป
                                 </div>
@@ -96,15 +100,17 @@
                                             <div>จึงเรียนมาเพื่อโปรดพิจารณาอนุมัติ</div>
                                             <br><br><br><br>
                                             <div style="margin-right: 12em;">ลงชื่อ</div>
-                                            <div>( {{documentParam.titleName}} {{documentParam.myName}} {{documentParam.surName}} )</div>
+                                            <div>( {{documentParam.titleName}} {{documentParam.myName}}
+                                                {{documentParam.surName}} )</div>
                                         </div>
-        
+
                                         <br><br>
                                         <div style="border-top: 1px solid black"></div>
                                         <br><br>
                                         <div layout="row" layout-wrap>
                                             <div class="card">
-                                                <div style="text-align: center; font-weight: bold;">ผู้อำนวยการ(ต้นสังกัด)</div>
+                                                <div style="text-align: center; font-weight: bold;">
+                                                    ผู้อำนวยการ(ต้นสังกัด)</div>
                                                 <div class="container">
                                                     <p>..........................................</p>
                                                     <p>..........................................</p>
@@ -127,7 +133,8 @@
                                                 </div>
                                             </div>
                                             <div class="card">
-                                                <div style="text-align: center; font-weight: bold;">กรรมการผู้จัดการ</div>
+                                                <div style="text-align: center; font-weight: bold;">กรรมการผู้จัดการ
+                                                </div>
                                                 <div class="container">
                                                     <p>..........................................</p>
                                                     <p>..........................................</p>
@@ -138,15 +145,17 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <img id="imgTemp" src="/app/assets/imgs/option.png" style="display: none;">
                     </div>
                 </page>
             </div>
-            
+
             <div flex="50">
                 <md-toolbar md-colors="{background: 'blue-800'}" style="border-radius: 25px;" class="toolbars">
                     <div class="md-toolbar-tools">
-                      <h2 class="md-flex">แก้ไข</h2>
-                      <md-button class="md-raised md-primary" md-colors="{background: 'green-800'}" style="margin-left: 61em;" ng-click="sl.exportPDF()">Export PDF</md-button>
+                        <h2 class="md-flex">แก้ไข</h2>
+                        <md-button class="md-raised md-primary" md-colors="{background: 'green-800'}"
+                            style="margin-left: 54em;" ng-click="sl.exportPDF()">Export PDF</md-button>
                     </div>
                 </md-toolbar>
                 <br>
@@ -165,8 +174,12 @@
                             <label>นามสกุล</label>
                             <input type="text" ng-model="documentParam.surName" placeholder="ระบุนามสกุล">
                         </md-input-container>
-                        <md-datepicker ng-model="documentParam.startWorkDate" ng-change="sl.onDateChanged(documentParam.startWorkDate, 1)" md-placeholder="วันที่เริ่มทำงาน"></md-datepicker>
-                        <md-datepicker ng-model="documentParam.endWorkDate" ng-change="sl.onDateChanged(documentParam.endWorkDate, 2)" md-placeholder="วันที่ออกจากการทำงาน"></md-datepicker>
+                        <md-datepicker ng-model="documentParam.startWorkDate"
+                            ng-change="sl.onDateChanged(documentParam.startWorkDate, 1)"
+                            md-placeholder="วันที่เริ่มทำงาน"></md-datepicker>
+                        <md-datepicker ng-model="documentParam.endWorkDate"
+                            ng-change="sl.onDateChanged(documentParam.endWorkDate, 2)"
+                            md-placeholder="วันที่ออกจากการทำงาน"></md-datepicker>
                         <md-input-container>
                             <label>ตำแหน่งปัจจุบัน</label>
                             <input type="text" ng-model="documentParam.currentPosition" placeholder="ระบุตำแหน่ง">
@@ -183,8 +196,8 @@
                 </form>
             </div>
         </div>
-        
-        
+
+
     </div>
 
     <footer>
